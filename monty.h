@@ -55,6 +55,10 @@ void pint(stack_t **stack, unsigned int line_cnt);
 void _add(stack_t **stack, unsigned int line_cnt);
 void mod(stack_t **stack, unsigned int line_cnt);
 
+void free_stack(stack_t *stack);
+size_t print_stack(const stack_t *stack);
+stack_t *add_node(stack_t **stack, const int n);
+stack_t *queue_node(stack_t **stack, const int n);
 void pall(stack_t **stack, unsigned int line_cnt __attribute__((unused)));
 
 #endif /* MAIN_H */
