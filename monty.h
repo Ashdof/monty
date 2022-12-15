@@ -47,6 +47,7 @@ void swap(stack_t **stack, unsigned int line_cnt);
 void push(stack_t **stack, unsigned int line_cnt);
 void pint(stack_t **stack, unsigned int line_cnt);
 void _add(stack_t **stack, unsigned int line_cnt);
+void mod(stack_t **stack, unsigned int line_cnt);
 
 void pall(stack_t **stack, unsigned int line_cnt __attribute__((unused)));
 
