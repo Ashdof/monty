@@ -36,16 +36,16 @@ int parse(FILE *file)
 			status = EXIT_FAILURE;
 			return (status);
 		}
-	}
 
-	op_cmd = parseCmd(op_toks[0]);
-	if (op_cmd == NULL)
-	{
-		freeStack(&stack);
-		freeTokens();
-		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, op_toks[0]);
-		status = EXIT_FAILURE;
-		return (status);
+		op_cmd = parseCmd(op_toks[0]);
+		if (op_cmd == NULL)
+		{
+			freeStack(&stack);
+			freeTokens();
+			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, op_toks[0]);
+			status = EXIT_FAILURE;
+			return (status);
+		}
 	}
 
 	op_cmd(&stack, line_number);
