@@ -60,6 +60,8 @@ void monty_div(stack_t **, unsigned int);
 void monty_mul(stack_t **, unsigned int);
 void monty_mod(stack_t **, unsigned int);
 void pchar(stack_t **, unsigned int);
+void pstr(stack_t **, unsigned int);
+void rotl(stack_t **, unsigned int);
 
 /* miscellaneous functions */
 unsigned int tokArrLen(void);

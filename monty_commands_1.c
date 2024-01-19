@@ -38,3 +38,51 @@ void pchar(stack_t **stack, unsigned int line_number)
 
 	printf("%c\n", (*stack)->next->n);
 }
+
+/**
+ * pstr - print the string from the top of the stack
+ * @stack: a reference pointer to the stack
+ * @line_number: the line number value
+ *
+ * Return: nothing
+ */
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *p = (*stack)->next;
+
+	(void)line_number;
+	while (p && p->n != 0 && (p->n > 0 && p->n <= 127))
+	{
+		printf("%c", p->n);
+		p = p->next;
+	}
+
+	printf("\n");
+}
+
+/**
+ * rotl - rotate the stack to the top
+ * @stack: a reference pointer to the stack
+ * @line_number: the line number value
+ *
+ * Return: nothing
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *top, *bottom;
+
+	(void)line_number;
+	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+		return;
+
+	top = (*stack)->next;
+	bottom = (*stack)->next;
+	while (bottom->next != NULL)
+		bottom = bottom->next;
+
+	top->next->prev = *stack;
+	(*stack)->next = top->next;
+	bottom->next = top;
+	top->next = NULL;
+	top->prev = bottom;
+}
