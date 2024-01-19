@@ -83,3 +83,27 @@ void pint(stack_t **stack, unsigned int line_number)
 
 	printf("%d\n", (*stack)->next->n);
 }
+
+/**
+ * pop - remove the top element of the stack
+ * @stack: a reference pointer to the stack
+ * @line_number: the line number value
+ *
+ * Return: nothing
+ */
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *p = NULL;
+
+	if ((*stack)->next == NULL)
+	{
+		setOpTokErr(popErr(line_number));
+		return;
+	}
+
+	p = (*stack)->next->next;
+	free((*stack)->next);
+	if (p)
+		p->prev = *stack;
+	(*stack)->next = p;
+}
