@@ -6,11 +6,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #define DELIMS " \n\a\b\t"
 #define INIT_STACK 0
 #define INIT_QUEUE 1
 
+/* global variable for opcode tokens */
 extern char **op_toks;
 
 /**
