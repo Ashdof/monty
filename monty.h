@@ -59,6 +59,7 @@ void nop(stack_t **, unsigned int);
 void monty_div(stack_t **, unsigned int);
 void monty_mul(stack_t **, unsigned int);
 void monty_mod(stack_t **, unsigned int);
+void pchar(stack_t **, unsigned int);
 
 /* miscellaneous functions */
 unsigned int tokArrLen(void);
@@ -78,5 +79,6 @@ int pintErr(unsigned int);
 int popErr(unsigned int);
 int shortStackErr(unsigned int, char *);
 int divErr(unsigned int);
+int pcharErr(unsigned int, char *);
 
 #endif /* MONTY_H */

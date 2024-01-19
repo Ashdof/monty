@@ -36,15 +36,21 @@ int parse(FILE *file)
 			status = mallocErr();
 			return (status);
 		}
+		else if (op_toks[0][0] == '#')
+		{
+			freeTokens();
+			continue;
+		}
 
 		op_cmd = parseCmd(op_toks[0]);
 		if (op_cmd == NULL)
 		{
 			freeStack(&stack);
-			freeTokens();
 			status =  opCodeErr(line_number, op_toks[0]);
+			freeTokens();
 			return (status);
 		}
+		freeTokens();
 	}
 
 	op_cmd(&stack, line_number);
