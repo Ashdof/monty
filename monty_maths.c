@@ -89,3 +89,30 @@ void monty_mul(stack_t **stack, unsigned int line_number)
 	(*stack)->next->next->n *= (*stack)->next->n;
 	pop(stack, line_number);
 }
+
+/**
+ * monty_mod - compute the remainder fot the top two elements of the stack
+ * @stack: a reference pointer to the stack
+ * @line_number: the line number value
+ *
+ * Return: nothing
+ */
+void monty_mod(stack_t **stack, unsigned int line_number)
+{
+	char *op = "mod";
+
+	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	{
+		setOpTokErr(shortStackErr(line_number, op));
+		return;
+	}
+
+	if ((*stack)->next->n == 0)
+	{
+		setOpTokErr(divErr(line_number));
+		return;
+	}
+
+	(*stack)->next->next->n %= (*stack)->next->n;
+	pop(stack, line_number);
+}
