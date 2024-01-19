@@ -49,3 +49,15 @@ int shortStackErr(unsigned int line_number, char *op)
 	fprintf(stderr, "L%u: can't %s, stack too short", line_number, op);
 	return (EXIT_FAILURE);
 }
+
+/**
+ * divErr - print error message related to division by zero
+ * @line_number: the line number value
+ *
+ * Return: Always EXIT_FAILURE
+ */
+int divErr(unsigned int line_number)
+{
+	fprintf(stderr, "L%u: division by zero", line_number);
+	return (EXIT_FAILURE);
+}
