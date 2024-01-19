@@ -50,6 +50,7 @@ void freeStack(stack_t **);
 void freeTokens(void);
 void push(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
+void pint(stack_t **, unsigned int);
 
 /* miscellaneous functions */
 unsigned int tokArrLen(void);
@@ -65,5 +66,6 @@ int noIntErr(unsigned int);
 int usageErr(void);
 int openFileErr(char *);
 int opCodeErr(unsigned int, char *);
+int pintErr(unsigned int);
 
 #endif /* MONTY_H */

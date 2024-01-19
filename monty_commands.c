@@ -65,3 +65,21 @@ void pall(stack_t **stack, unsigned int line_number)
 		p = p->next;
 	}
 }
+
+/**
+ * pint - print the first element at the top of the stack
+ * @stack: a reference pointer to the stack
+ * @line_number: the line number value
+ *
+ * Return: nothing
+ */
+void pint(stack_t **stack, unsigned int line_number)
+{
+	if ((*stack)->next == NULL)
+	{
+		setOpTokErr(pintErr(line_number));
+		return;
+	}
+
+	printf("%d\n", (*stack)->next->n);
+}
