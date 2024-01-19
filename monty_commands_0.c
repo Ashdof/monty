@@ -37,12 +37,24 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 
 	node->n = atoi(op_toks[1]);
-	p = (*stack)->next;
-	node->prev = *stack;
-	node->next = p;
-	if (p)
-		p->prev = node;
-	(*stack)->next = node;
+	if (checkMode(*stack) == INIT_STACK) /* STACK mode insert at front */
+	{
+		p = (*stack)->next;
+		node->prev = *stack;
+		node->next = p;
+		if (p)
+			p->prev = node;
+		(*stack)->next = node;
+	}
+	else /* QUEUE mode insert at end */
+	{
+		p = *stack;
+		while (p->next)
+			p = p->next;
+		node->prev = p;
+		node->next = NULL;
+		p->next = node;
+	}
 }
 
 /**

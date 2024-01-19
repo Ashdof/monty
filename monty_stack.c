@@ -39,3 +39,19 @@ void freeStack(stack_t **stack)
 		*stack = p;
 	}
 }
+
+/**
+ * check_mode - check the mode of the stack
+ * @stack: a pointer to the top (stack) or bottom (queue)
+ * of stack_t linked list
+ *
+ * Return: 0 for stack mode, 1 for queue mode and 2 otherwise
+ */
+int checkMode(stack_t *stack)
+{
+	if (stack->n == INIT_STACK)
+		return (INIT_STACK);
+	else if (stack->n == INIT_QUEUE)
+		return (INIT_QUEUE);
+	return (2);
+}

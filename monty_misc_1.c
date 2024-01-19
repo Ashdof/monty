@@ -26,3 +26,29 @@ void fillNumbaseBuff(unsigned int num, unsigned int base,
 		i--;
 	}
 }
+
+/**
+ * _stack - convert a queue to a stack
+ * @stack: a reference pointer to the stack
+ * @line_number: the line number value
+ *
+ * Return: nothing
+ */
+void _stack(stack_t **stack, unsigned int line_number)
+{
+	(void)line_number;
+	(*stack)->n = INIT_STACK;
+}
+
+/**
+ * _queue - convert a stack to a queue
+ * @stack: a reference pointer to the stack
+ * @line_number: the line number value
+ *
+ * Return: nothing
+ */
+void _queue(stack_t **stack, unsigned int line_number)
+{
+	(void)line_number;
+	(*stack)->n = INIT_QUEUE;
+}

@@ -9,6 +9,7 @@
 
 #define DELIMS " \n\a\b\t"
 #define INIT_STACK 0
+#define INIT_QUEUE 1
 
 extern char **op_toks;
 
@@ -70,6 +71,9 @@ char *getInt(int);
 unsigned int _abs(int);
 int getNumBaseLen(unsigned int, unsigned int);
 void fillNumbaseBuff(unsigned int, unsigned int, char *, int);
+int checkMode(stack_t *);
+void _stack(stack_t **, unsigned int);
+void _queue(stack_t **, unsigned int);
 
 /* error message */
 int mallocErr(void);
