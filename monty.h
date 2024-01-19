@@ -57,6 +57,7 @@ void add(stack_t **, unsigned int);
 void sub(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
 void monty_div(stack_t **, unsigned int);
+void monty_mul(stack_t **, unsigned int);
 
 /* miscellaneous functions */
 unsigned int tokArrLen(void);

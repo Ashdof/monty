@@ -43,7 +43,7 @@ void sub(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * div - compute the quotient fot the top two elements of the stack
+ * monty_div - compute the quotient fot the top two elements of the stack
  * @stack: a reference pointer to the stack
  * @line_number: the line number value
  *
@@ -66,5 +66,26 @@ void monty_div(stack_t **stack, unsigned int line_number)
 	}
 
 	(*stack)->next->next->n /= (*stack)->next->n;
+	pop(stack, line_number);
+}
+
+/**
+ * monty_mul - compute the product for the top two elements of the stack
+ * @stack: a reference pointer to the stack
+ * @line_number: the line number value
+ *
+ * Return: nothing
+ */
+void monty_mul(stack_t **stack, unsigned int line_number)
+{
+	char *op = "mul";
+
+	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	{
+		setOpTokErr(shortStackErr(line_number, op));
+		return;
+	}
+
+	(*stack)->next->next->n *= (*stack)->next->n;
 	pop(stack, line_number);
 }
