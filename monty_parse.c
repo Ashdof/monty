@@ -8,7 +8,8 @@
  * contents and invokes an appropriate function to execute the
  * given instruction
  *
- * Return: nothing
+ * Return: on success, it returns EXIT_SUCCESS, ontherwise, it
+ * returns EXIT_FAILURE
  */
 int parse(FILE *file)
 {
@@ -32,8 +33,7 @@ int parse(FILE *file)
 		if (op_toks == NULL)
 		{
 			freeStack(&stack);
-			fprintf(stderr, "Error: malloc failed\n");
-			status = EXIT_FAILURE;
+			status = mallocErr();
 			return (status);
 		}
 
@@ -42,8 +42,7 @@ int parse(FILE *file)
 		{
 			freeStack(&stack);
 			freeTokens();
-			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, op_toks[0]);
-			status = EXIT_FAILURE;
+			status =  opCodeErr(line_number, op_toks[0]);
 			return (status);
 		}
 	}

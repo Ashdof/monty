@@ -12,10 +12,7 @@ int initStack(stack_t **stack)
 
 	node = malloc(sizeof(stack_t));
 	if (node == NULL)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		return (EXIT_FAILURE);
-	}
+		return (mallocErr());
 
 	node->prev = NULL;
 	node->n = INIT_STACK;

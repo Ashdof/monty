@@ -42,6 +42,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/* main functions */
 int parse(FILE *);
 int initStack(stack_t **);
 void (*parseCmd(char *))(stack_t **, unsigned int);
@@ -49,5 +50,20 @@ void freeStack(stack_t **);
 void freeTokens(void);
 void push(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
+
+/* miscellaneous functions */
+unsigned int tokArrLen(void);
+char *getInt(int);
+unsigned int _abs(int);
+int getNumBaseLen(unsigned int, unsigned int);
+void fillNumbaseBuff(unsigned int, unsigned int, char *, int);
+
+/* error message */
+int mallocErr(void);
+void setOpTokErr(int);
+int noIntErr(unsigned int);
+int usageErr(void);
+int openFileErr(char *);
+int opCodeErr(unsigned int, char *);
 
 #endif /* MONTY_H */

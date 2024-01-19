@@ -15,16 +15,14 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		fprintf(stderr, "USAGE: monty file\n");
-		status = EXIT_FAILURE;
+		status = usageErr();
 		return (status);
 	}
 
 	file = fopen(argv[1], "r");
 	if (file == NULL)
 	{
-		fprintf(stderr, "Error: can't open file %s\n", argv[1]);
-		status = EXIT_FAILURE;
+		status = openFileErr(argv[1]);
 		return (status);
 	}
 	status = parse(file);

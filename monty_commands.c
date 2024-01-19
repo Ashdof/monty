@@ -10,17 +10,33 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node, *p;
+	int i;
 
 	(void)line_number;
 
 	node = malloc(sizeof(stack_t));
 	if (node == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
+		setOpTokErr(mallocErr());
 		return;
 	}
-	node->n = atoi(op_toks[1]);
+	if (op_toks[1] == NULL)
+	{
+		setOpTokErr(noIntErr(line_number));
+		return;
+	}
+	for (i = 0; op_toks[1][i]; i++)
+	{
+		if (op_toks[1][i] == '-' && i == 0)
+			continue;
+		if (op_toks[1][i] < '0' || op_toks[1][i] > '9')
+		{
+			setOpTokErr(noIntErr(line_number));
+			return;
+		}
+	}
 
+	node->n = atoi(op_toks[1]);
 	p = (*stack)->next;
 	node->prev = *stack;
 	node->next = p;
