@@ -36,3 +36,15 @@ int popErr(unsigned int line_number)
 	fprintf(stderr, "L%u: can't pop an empty stack", line_number);
 	return (EXIT_FAILURE);
 }
+
+/**
+ * shortStackErr - print error message related to swap failure
+ * @line_number: the line number value
+ *
+ * Return: Always EXIT_FAILURE
+ */
+int shortStackErr(unsigned int line_number)
+{
+	fprintf(stderr, "L%u: can't swap, stack too short", line_number);
+	return (EXIT_FAILURE);
+}

@@ -107,3 +107,30 @@ void pop(stack_t **stack, unsigned int line_number)
 		p->prev = *stack;
 	(*stack)->next = p;
 }
+
+/**
+ * swap - swap the top two elements of the stack
+ * @stack: a reference pointer to the stack
+ * @line_number: the line number value
+ *
+ * Return: nothing
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *p;
+
+	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	{
+		setOpTokErr(shortStackErr(line_number));
+		return;
+	}
+
+	p = (*stack)->next->next;
+	(*stack)->next = p->next;
+	(*stack)->next->prev = p;
+	if (p->next)
+		p->next->prev = (*stack)->next;
+	p->next = (*stack)->next;
+	p->prev = *stack;
+	(*stack)->next = p;
+}
