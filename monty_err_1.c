@@ -40,11 +40,12 @@ int popErr(unsigned int line_number)
 /**
  * shortStackErr - print error message related to swap failure
  * @line_number: the line number value
+ * @op: the opcode
  *
  * Return: Always EXIT_FAILURE
  */
-int shortStackErr(unsigned int line_number)
+int shortStackErr(unsigned int line_number, char *op)
 {
-	fprintf(stderr, "L%u: can't swap, stack too short", line_number);
+	fprintf(stderr, "L%u: can't %s, stack too short", line_number, op);
 	return (EXIT_FAILURE);
 }

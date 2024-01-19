@@ -53,6 +53,7 @@ void pall(stack_t **, unsigned int);
 void pint(stack_t **, unsigned int);
 void pop(stack_t **, unsigned int);
 void swap(stack_t **, unsigned int);
+void add(stack_t **, unsigned int);
 
 /* miscellaneous functions */
 unsigned int tokArrLen(void);
@@ -70,6 +71,6 @@ int openFileErr(char *);
 int opCodeErr(unsigned int, char *);
 int pintErr(unsigned int);
 int popErr(unsigned int);
-int shortStackErr(unsigned int);
+int shortStackErr(unsigned int, char *);
 
 #endif /* MONTY_H */

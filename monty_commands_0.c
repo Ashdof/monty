@@ -118,10 +118,11 @@ void pop(stack_t **stack, unsigned int line_number)
 void swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *p;
+	char *op = "swap";
 
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
-		setOpTokErr(shortStackErr(line_number));
+		setOpTokErr(shortStackErr(line_number, op));
 		return;
 	}
 
